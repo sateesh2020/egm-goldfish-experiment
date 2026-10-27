@@ -114,6 +114,7 @@ class EndToEndWithFakeClaude(unittest.TestCase):
         self.assertNotIn("Agent", fresh["args"][fresh["args"].index("--allowedTools") + 1])
         # scoring ran and the manifest was written
         self.assertTrue((self.out / "results.md").exists())
+        self.assertTrue((self.out / "report.html").exists())
         manifest = json.loads((self.out / "manifest.json").read_text())
         self.assertEqual(manifest["claude_version"], "9.9.9 (Fake Claude)")
         self.assertTrue(all(r["ok"] for r in manifest["runs"].values()))

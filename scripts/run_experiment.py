@@ -298,6 +298,11 @@ def main(argv: list[str] | None = None) -> int:
         sys.path.insert(0, str(ROOT / "scripts"))
         import score  # noqa: E402
         score.main([str(out)])
+        import build_report  # noqa: E402
+        if (ROOT / "results") in out.parents:
+            build_report.main([])  # refresh report/index.html with every run set in results/
+        else:
+            build_report.main([str(out), "--out", str(out / "report.html"), "--no-svg"])
     return 0 if all(r.ok for r in results) else 2
 
 

@@ -40,6 +40,18 @@ Claude Code 2.1.311, headless, CLI default model (`claude-sonnet-5-5`), EGM at c
 
 \*As reported by the CLI at API rates. A subscription draws on plan usage instead.
 
+![Which reviewer caught which planted flaw](results/2026-10-27/visuals/scorecard.svg)
+
+![Cost per run](results/2026-10-27/visuals/cost.svg)
+
+![Wall-clock time per run](results/2026-10-27/visuals/time.svg)
+
+### Explore the reviews visually
+
+[`report/index.html`](report/index.html) is a single offline page with the scorecard, charts, and a **review explorer**. Pick a planted flaw to highlight the exact finding where each reviewer caught it. You can also open EGM's five stage reports. Click any scorecard cell to jump to that review. It works in light and dark mode, and on a phone.
+
+To view it, download the repo and open `report/index.html` in a browser. GitHub shows HTML files as source, so it won't render on the repo page. Or turn on GitHub Pages (Settings → Pages → deploy from `main`) and open `/report/`.
+
 Full output: [`results/2026-10-27/results.md`](results/2026-10-27/results.md). Every review is in `results/2026-10-27/<run>/review.md`. The EGM run also includes its stage reports and full transcripts with paths and account details redacted (`egm-1/transcripts.tgz`, including each subagent's tool calls).
 
 **What we read from it:**
@@ -102,6 +114,12 @@ python3 scripts/sanitize_results.py results --check               # verify (exit
 
 It keeps only the result fields the scorer needs, redacts emails and absolute paths (including inside `transcripts.tgz`), and removes the per-run `workspace/` copies. The committed results were produced this way, and a test checks that they stay clean.
 
+Rebuild the visual report and the README charts after a new run (it reads every folder in `results/`):
+
+```bash
+python3 scripts/build_report.py
+```
+
 Re-score any run folder (for example after editing the patterns):
 
 ```bash
@@ -122,7 +140,7 @@ Every call is headless (`claude -p --output-format json`) with no MCP servers (`
 python3 -m unittest discover -s tests -v
 ```
 
-33 tests, standard library only. The runner tests use a fake `claude` executable, so they make no API calls. They cover command construction, the in-context `--resume` flow, review collection, failure handling, dry runs, and the toy app's real behaviour (it has `get`, not `get_url`, and uses SHA-256).
+43 tests, standard library only. The runner tests use a fake `claude` executable, so they make no API calls. They cover command construction, the in-context `--resume` flow, review collection, failure handling, dry runs, the visual report (its highlights must agree with the scorer, and the page must make no network requests), and the toy app's real behaviour (it has `get`, not `get_url`, and uses SHA-256).
 
 ## Layout
 
@@ -133,6 +151,8 @@ experiment/prompts/          review prompt and the in-context setup turn
 scripts/run_experiment.py    drives the Claude Code CLI for each arm
 scripts/score.py             scores reviews, writes results.md / scores.json
 scripts/sanitize_results.py  strips paths, emails and noise from a results folder before you publish it
+scripts/build_report.py      builds report/index.html and results/<run-set>/visuals/*.svg
+report/index.html            the visual report (self-contained, offline)
 results/2026-10-27/          the reference run: reviews, CLI results, EGM stage reports and transcripts
 results/2026-10-27-rerun/    one run per arm with this repo's runner
 tests/                       unit tests (no API calls)
