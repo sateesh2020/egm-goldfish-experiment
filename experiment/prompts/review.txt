@@ -1,0 +1,1 @@
+Review the design document docs/designs/click_analytics.md against the code in this repository. List every problem you find with a severity (Blocker, Major, Nit) and write the review to review.md.

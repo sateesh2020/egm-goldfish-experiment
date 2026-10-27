@@ -1,0 +1,105 @@
+{
+  "type": "result",
+  "subtype": "success",
+  "is_error": false,
+  "result": "The review ran all five stages and the design is not ready to implement. Every stage failed. The consolidated report is at `<local-path>/consolidated_review_report.md`.\n\nI read the boundary at line 28, so FeatureRange was 1..27 and DetailedRange was 28..34. No extra context files were given, so reviewers read only the files the doc links. The document was not edited.\n\nIt lists 11 blockers, 11 majors and 4 nits, with a traceability matrix back to the stage findings. The main blockers:\n- **Increment:** it reads the count and writes back `count + 1`, which loses clicks. `README.md` says the web layer runs 4 gunicorn workers, so the race is real.\n- **Failure policy:** a synchronous write to another team's Postgres sits in the redirect path, with no timeout or fail-open policy.\n- **Speculative scope:** the bot-detection framework and the CEP forwarding (CEP is never defined) have no stated requirement.\n- **Missing sections:** there is no Alternatives Considered, Goals/Non-Goals, or Risks section.\n- **Plan:** it has no files, signatures, schema, phases or tests, and \"Ship it\" is not a step.\n- **Wrong facts:** slugs use SHA-256, not MD5, and the method is `LinkStore.get`, not `get_url`.\n\nThe five stage reports are in the same folder:\n- `zoom_out_report.md`\n- `comprehension_report.md`\n- `critic_report.md`\n- `intermediate_zoom_out_report.md`\n- `implementation_readiness_report.md`\n\nThe design reviewer found no `agents/design.md` and fell back to `agents/design_critic.md`. The Stage 8 reviewer did not re-check the code citations from the earlier reports.\n\nPlease review `consolidated_review_report.md`. To have the findings resolved against the doc, run `/egm:egm-resolve`.",
+  "session_id": "48db5f4d-d681-41df-8bff-241ede3448c8",
+  "duration_ms": 184652,
+  "duration_api_ms": 235432,
+  "num_turns": 21,
+  "total_cost_usd": 0.8804821999999999,
+  "usage": {
+    "input_tokens": 26,
+    "cache_creation_input_tokens": 82123,
+    "cache_read_input_tokens": 725109,
+    "output_tokens": 13692,
+    "output_tokens_details": {
+      "thinking_tokens": 330
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 82123,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 646,
+        "cache_read_input_tokens": 78994,
+        "cache_creation_input_tokens": 3129,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 3129
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 78,
+      "outputTokens": 33165,
+      "cacheReadInputTokens": 845017,
+      "cacheCreationInputTokens": 136396,
+      "webSearchRequests": 0,
+      "costUSD": 0.8804821999999999,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 64000,
+      "thinkingTokens": 458,
+      "cacheCreationEphemeral5mInputTokens": 54273,
+      "cacheCreationEphemeral1hInputTokens": 82123,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [
+    {
+      "tool_name": "Bash",
+      "tool_use_id": "toolu_01VJNAQMSf9L2r73CQnbcVWA",
+      "tool_input": {
+        "command": "ls <local-path>/document_standards <local-path>/agents"
+      }
+    }
+  ],
+  "stop_reason": "end_turn",
+  "subagent_stats": {
+    "spawned": 9,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 9
+    },
+    "started_in_background": 0,
+    "max_depth": 1,
+    "spawned_by_subagents": 0,
+    "completed": 9,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {
+      "egm:egm-zoom-out": 2,
+      "egm:egm-comprehension": 1,
+      "egm:egm-design": 1,
+      "egm:egm-structural": 1,
+      "egm:egm-style": 2,
+      "egm:egm-implementation-readiness": 1,
+      "egm:egm-codebase-details": 1
+    }
+  }
+}

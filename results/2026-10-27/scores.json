@@ -1,0 +1,169 @@
+[
+  {
+    "run": "egm-1",
+    "arm": "egm",
+    "found": {
+      "F1": true,
+      "F2": true,
+      "F3": true,
+      "F4": true,
+      "F5": true,
+      "F6": true,
+      "F7": true
+    },
+    "found_count": 7,
+    "findings": 26,
+    "duration_s": 184.652,
+    "turns": 21,
+    "cost_usd": 0.8804821999999999,
+    "models": [
+      "claude-sonnet-5-5"
+    ],
+    "errors": 0,
+    "result_files": 1
+  },
+  {
+    "run": "fresh-1",
+    "arm": "fresh",
+    "found": {
+      "F1": true,
+      "F2": true,
+      "F3": true,
+      "F4": true,
+      "F5": true,
+      "F6": true,
+      "F7": true
+    },
+    "found_count": 7,
+    "findings": 14,
+    "duration_s": 20.899,
+    "turns": 5,
+    "cost_usd": 0.19573770000000001,
+    "models": [
+      "claude-haiku-5-5",
+      "claude-sonnet-5-5"
+    ],
+    "errors": 0,
+    "result_files": 1
+  },
+  {
+    "run": "fresh-2",
+    "arm": "fresh",
+    "found": {
+      "F1": true,
+      "F2": true,
+      "F3": true,
+      "F4": true,
+      "F5": true,
+      "F6": true,
+      "F7": true
+    },
+    "found_count": 7,
+    "findings": 16,
+    "duration_s": 20.892,
+    "turns": 5,
+    "cost_usd": 0.07438630000000002,
+    "models": [
+      "claude-haiku-5-5",
+      "claude-sonnet-5-5"
+    ],
+    "errors": 0,
+    "result_files": 1
+  },
+  {
+    "run": "fresh-3",
+    "arm": "fresh",
+    "found": {
+      "F1": true,
+      "F2": true,
+      "F3": true,
+      "F4": true,
+      "F5": true,
+      "F6": true,
+      "F7": true
+    },
+    "found_count": 7,
+    "findings": 15,
+    "duration_s": 25.031,
+    "turns": 5,
+    "cost_usd": 0.0797242,
+    "models": [
+      "claude-haiku-5-5",
+      "claude-sonnet-5-5"
+    ],
+    "errors": 0,
+    "result_files": 1
+  },
+  {
+    "run": "in-context-1",
+    "arm": "in-context",
+    "found": {
+      "F1": true,
+      "F2": true,
+      "F3": true,
+      "F4": true,
+      "F5": true,
+      "F6": true,
+      "F7": true
+    },
+    "found_count": 7,
+    "findings": 14,
+    "duration_s": 37.786,
+    "turns": 8,
+    "cost_usd": 0.19073460000000003,
+    "models": [
+      "claude-haiku-5-5",
+      "claude-sonnet-5-5"
+    ],
+    "errors": 0,
+    "result_files": 2
+  },
+  {
+    "run": "in-context-2",
+    "arm": "in-context",
+    "found": {
+      "F1": true,
+      "F2": true,
+      "F3": true,
+      "F4": true,
+      "F5": true,
+      "F6": true,
+      "F7": true
+    },
+    "found_count": 7,
+    "findings": 15,
+    "duration_s": 39.602999999999994,
+    "turns": 13,
+    "cost_usd": 0.2121911,
+    "models": [
+      "claude-haiku-5-5",
+      "claude-sonnet-5-5"
+    ],
+    "errors": 0,
+    "result_files": 2
+  },
+  {
+    "run": "in-context-3",
+    "arm": "in-context",
+    "found": {
+      "F1": true,
+      "F2": true,
+      "F3": true,
+      "F4": true,
+      "F5": true,
+      "F6": true,
+      "F7": true
+    },
+    "found_count": 7,
+    "findings": 16,
+    "duration_s": 41.524,
+    "turns": 8,
+    "cost_usd": 0.19263519999999998,
+    "models": [
+      "claude-haiku-5-5",
+      "claude-sonnet-5-5"
+    ],
+    "errors": 0,
+    "result_files": 2
+  }
+]

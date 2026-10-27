@@ -1,0 +1,73 @@
+[
+  {
+    "run": "egm-1",
+    "arm": "egm",
+    "found": {
+      "F1": true,
+      "F2": true,
+      "F3": true,
+      "F4": true,
+      "F5": true,
+      "F6": true,
+      "F7": true
+    },
+    "found_count": 7,
+    "findings": 17,
+    "duration_s": 259.767,
+    "turns": 30,
+    "cost_usd": 1.2895864999999997,
+    "models": [
+      "claude-sonnet-5-5"
+    ],
+    "errors": 0,
+    "result_files": 1
+  },
+  {
+    "run": "fresh-1",
+    "arm": "fresh",
+    "found": {
+      "F1": true,
+      "F2": true,
+      "F3": true,
+      "F4": true,
+      "F5": true,
+      "F6": true,
+      "F7": true
+    },
+    "found_count": 7,
+    "findings": 17,
+    "duration_s": 33.875,
+    "turns": 11,
+    "cost_usd": 0.1340674,
+    "models": [
+      "claude-haiku-5-5",
+      "claude-sonnet-5-5"
+    ],
+    "errors": 0,
+    "result_files": 1
+  },
+  {
+    "run": "in-context-1",
+    "arm": "in-context",
+    "found": {
+      "F1": true,
+      "F2": true,
+      "F3": true,
+      "F4": true,
+      "F5": true,
+      "F6": true,
+      "F7": true
+    },
+    "found_count": 7,
+    "findings": 17,
+    "duration_s": 40.566,
+    "turns": 8,
+    "cost_usd": 0.26233399999999996,
+    "models": [
+      "claude-haiku-5-5",
+      "claude-sonnet-5-5"
+    ],
+    "errors": 0,
+    "result_files": 2
+  }
+]

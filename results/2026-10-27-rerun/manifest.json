@@ -1,0 +1,28 @@
+{
+  "started_utc": "2026-10-27T072440Z",
+  "claude_version": "2.1.311 (Claude Code)",
+  "model_flag": null,
+  "egm_plugin_dir": ".cache/elephant-goldfish-model-b3a3595",
+  "egm_ref": "b3a3595",
+  "plan": [
+    "egm-1",
+    "fresh-1",
+    "in-context-1"
+  ],
+  "dry_run": false,
+  "finished_utc": "2026-10-27T072907Z",
+  "runs": {
+    "egm-1": {
+      "ok": true,
+      "note": ""
+    },
+    "fresh-1": {
+      "ok": true,
+      "note": ""
+    },
+    "in-context-1": {
+      "ok": true,
+      "note": ""
+    }
+  }
+}

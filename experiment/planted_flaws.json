@@ -1,0 +1,77 @@
+{
+  "design_doc": "toy/docs/designs/click_analytics.md",
+  "written_before_any_review": "2026-10-27",
+  "scoring_note": "A flaw counts as found when one finding (a blank-line-separated block, a list item, or a table row) matches every pattern group. Patterns are case-insensitive regular expressions; within a group, any pattern may match. Automated scoring is a first pass: read the reviews before trusting a number.",
+  "flaws": [
+    {
+      "id": "F1",
+      "category": "codebase accuracy",
+      "title": "Wrong method name",
+      "description": "The doc names LinkStore.get_url(slug); the real method is LinkStore.get.",
+      "groups": [
+        ["get_url"]
+      ]
+    },
+    {
+      "id": "F2",
+      "category": "codebase accuracy",
+      "title": "Wrong hash algorithm",
+      "description": "The doc says slugs use MD5; shortener/slugs.py uses SHA-256.",
+      "groups": [
+        ["\\bMD5\\b"],
+        ["SHA-?256"]
+      ]
+    },
+    {
+      "id": "F3",
+      "category": "comprehension",
+      "title": "Undefined acronym",
+      "description": "\"The CEP\" is never defined or linked.",
+      "groups": [
+        ["\\bCEP\\b"],
+        ["undefined", "not defined", "never (defined|expanded|explained)", "unexplained", "expand", "define[sd]?\\b", "definition"]
+      ]
+    },
+    {
+      "id": "F4",
+      "category": "scope / YAGNI",
+      "title": "Speculative ML bot-detection framework",
+      "description": "Phase 1 adds a pluggable ML bot-detection framework that no requirement asks for.",
+      "groups": [
+        ["bot"],
+        ["speculative", "YAGNI", "scope creep", "no requirement", "unjustified", "justif", "\\bcut\\b", "defer", "out of scope", "not needed", "unrelated", "remove", "from scope", "(doesn't|does not|not|neither) serves?"]
+      ]
+    },
+    {
+      "id": "F5",
+      "category": "failure mode",
+      "title": "Remote write on the redirect path with no failure behaviour",
+      "description": "resolve() synchronously writes to another team's Postgres; nothing says what happens when it is slow or down.",
+      "groups": [
+        ["Postgres", "database", "\\bDB\\b", "external", "dependency"],
+        ["fail", "outage", "unavailable", "\\bdown\\b", "slow", "latency", "timeout", "availability"],
+        ["redirect", "resolve", "critical path", "request path", "hot path"]
+      ]
+    },
+    {
+      "id": "F6",
+      "category": "concurrency",
+      "title": "Read-then-write counter loses updates",
+      "description": "Reading the count and writing count + 1 loses clicks across the 4 worker processes named in README.md.",
+      "groups": [
+        ["race", "lost update", "lose", "loses", "lost", "undercount", "overwrite", "atomic"],
+        ["count", "increment", "click"]
+      ]
+    },
+    {
+      "id": "F7",
+      "category": "implementation readiness",
+      "title": "Plan is not actionable",
+      "description": "The plan names no files, has no Create/Modify markers, no tests or verification; the last step is \"Ship it\".",
+      "groups": [
+        ["plan", "steps?"],
+        ["Ship it", "not actionable", "no (files|file paths|tests?)", "name no files", "file paths", "test plan", "too thin", "not reviewable", "rewrite the plan"]
+      ]
+    }
+  ]
+}

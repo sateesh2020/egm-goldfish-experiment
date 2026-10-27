@@ -1,0 +1,25 @@
+{
+  "run": "egm-1",
+  "ok": true,
+  "note": "",
+  "commands": [
+    [
+      "claude",
+      "-p",
+      "/egm:egm-review docs/designs/click_analytics.md uninterrupted",
+      "--output-format",
+      "json",
+      "--strict-mcp-config",
+      "--mcp-config",
+      "{\"mcpServers\":{}}",
+      "--setting-sources",
+      "project",
+      "--permission-mode",
+      "acceptEdits",
+      "--allowedTools",
+      "Read Grep Glob Write Edit Agent",
+      "--plugin-dir",
+      ".cache/elephant-goldfish-model-b3a3595"
+    ]
+  ]
+}
