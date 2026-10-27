@@ -67,7 +67,7 @@ Same outcome, with different numbers. EGM's run also shows how much these runs v
 Requirements: Python 3.10+ (standard library only), the [Claude Code CLI](https://code.claude.com/docs) signed in (EGM's docs require 2.1.271 or later for reviewer isolation), and `git`, which is used to fetch EGM.
 
 ```bash
-git clone <this repo> && cd egm-goldfish-experiment
+git clone https://github.com/sateesh2020/cd-egm-goldfish-experiment.git && cd cd-egm-goldfish-experiment
 
 # See exactly what will run, without calling anything
 python3 scripts/run_experiment.py --dry-run
